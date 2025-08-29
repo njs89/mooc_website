@@ -4,13 +4,16 @@ class MOOCApp {
     constructor() {
         this.currentUser = null;
         this.currentTask = 1;
-        this.tasks = this.initializeTasks();
+        this.tasks = [];
         this.saveTimer = null;
         
         this.init();
     }
 
     async init() {
+        // Load tasks from JSON file
+        await this.loadTasks();
+        
         // Check if user is already logged in
         const token = localStorage.getItem('mooc_token');
         if (token) {
@@ -29,108 +32,122 @@ class MOOCApp {
         this.setupEventListeners();
     }
 
-    initializeTasks() {
-        return [
-            {
-                id: 1,
-                title: "Einführung in die Argumentation",
-                content: `
-                    <h2>Einführung in die Argumentation</h2>
-                    <p>Willkommen zu Ihrem ersten Schritt in die Welt der Argumentation! In dieser Aufgabe lernen Sie die Grundlagen kennen.</p>
-                    <p><strong>Was ist ein Argument?</strong></p>
-                    <p>Ein Argument besteht aus mindestens zwei Teilen:</p>
-                    <ul>
-                        <li><strong>Behauptung (These):</strong> Was Sie beweisen möchten</li>
-                        <li><strong>Begründung:</strong> Warum Ihre Behauptung stimmt</li>
-                    </ul>
-                    <p><strong>Ihre Aufgabe:</strong></p>
-                    <p>Schreiben Sie einen kurzen Text (150-200 Wörter) über ein Thema Ihrer Wahl. Stellen Sie dabei eine klare Behauptung auf und begründen Sie diese mit mindestens zwei Argumenten.</p>
-                `
-            },
-            {
-                id: 2,
-                title: "Thesen formulieren",
-                content: `
-                    <h2>Thesen formulieren</h2>
-                    <p>Eine starke These ist das Fundament jedes guten Arguments. Sie muss klar, präzise und vertretbar sein.</p>
-                    <p><strong>Eigenschaften einer guten These:</strong></p>
-                    <ul>
-                        <li>Eindeutig und verständlich formuliert</li>
-                        <li>Nicht zu allgemein oder zu spezifisch</li>
-                        <li>Kontrovers diskutierbar</li>
-                        <li>Mit Argumenten belegbar</li>
-                    </ul>
-                    <p><strong>Ihre Aufgabe:</strong></p>
-                    <p>Formulieren Sie zu drei verschiedenen Themen jeweils eine These. Erklären Sie, warum jede These ein gutes Fundament für eine Argumentation darstellt.</p>
-                `
-            },
-            {
-                id: 3,
-                title: "Argumente finden und strukturieren",
-                content: `
-                    <h2>Argumente finden und strukturieren</h2>
-                    <p>Gute Argumente zu finden erfordert systematisches Vorgehen. Hier lernen Sie verschiedene Strategien kennen.</p>
-                    <p><strong>Argumentationsstrategien:</strong></p>
-                    <ul>
-                        <li><strong>Faktenargument:</strong> Berufung auf nachprüfbare Tatsachen</li>
-                        <li><strong>Autoritätsargument:</strong> Berufung auf Experten</li>
-                        <li><strong>Analogieargument:</strong> Vergleich mit ähnlichen Situationen</li>
-                        <li><strong>Kausalargument:</strong> Ursache-Wirkungs-Beziehungen</li>
-                    </ul>
-                    <p><strong>Ihre Aufgabe:</strong></p>
-                    <p>Wählen Sie eine These aus der vorherigen Aufgabe. Entwickeln Sie für diese These vier verschiedene Argumente entsprechend den vier Strategien.</p>
-                `
-            },
-            // Add more tasks as needed...
-            {
-                id: 4,
-                title: "Gegenargumente antizipieren",
-                content: `
-                    <h2>Gegenargumente antizipieren</h2>
-                    <p>Ein starker argumentativer Text berücksichtigt auch mögliche Einwände und Gegenargumente.</p>
-                    <p><strong>Warum Gegenargumente wichtig sind:</strong></p>
-                    <ul>
-                        <li>Zeigen Sie die Komplexität des Themas</li>
-                        <li>Stärken Ihre Glaubwürdigkeit</li>
-                        <li>Ermöglichen eine differenzierte Argumentation</li>
-                    </ul>
-                    <p><strong>Ihre Aufgabe:</strong></p>
-                    <p>Nehmen Sie Ihre bisherige Argumentation und identifizieren Sie drei mögliche Gegenargumente. Entwickeln Sie für jedes Gegenargument eine Erwiderung.</p>
-                `
-            },
-            {
-                id: 5,
-                title: "Einleitung schreiben",
-                content: `
-                    <h2>Einleitung schreiben</h2>
-                    <p>Die Einleitung ist der erste Eindruck Ihres argumentativen Textes. Sie sollte das Interesse wecken und zur These hinführen.</p>
-                    <p><strong>Elemente einer guten Einleitung:</strong></p>
-                    <ul>
-                        <li>Aufmerksamkeit erregendes Element (Frage, Zitat, Statistik)</li>
-                        <li>Hinführung zum Thema</li>
-                        <li>Klare These am Ende</li>
-                    </ul>
-                    <p><strong>Ihre Aufgabe:</strong></p>
-                    <p>Schreiben Sie drei verschiedene Einleitungen für dasselbe Thema. Verwenden Sie dabei unterschiedliche Eröffnungsstrategien.</p>
-                `
-            }
-        ];
-        
-        // Add placeholder tasks for remaining tasks (6-19)
-        for (let i = 6; i <= 19; i++) {
-            this.tasks.push({
+    async loadTasks() {
+        try {
+            const response = await fetch('/tasks.json');
+            const data = await response.json();
+            this.tasks = data.tasks;
+            this.metadata = data.metadata;
+            console.log(`Loaded ${this.tasks.length} tasks from tasks.json`);
+        } catch (error) {
+            console.error('Failed to load tasks:', error);
+            // Fallback to a basic task structure if JSON fails to load
+            this.tasks = this.getDefaultTasks();
+        }
+    }
+
+    // Fallback tasks if JSON fails to load
+    getDefaultTasks() {
+        const defaultTasks = [];
+        for (let i = 1; i <= 19; i++) {
+            defaultTasks.push({
                 id: i,
                 title: `Aufgabe ${i}`,
-                content: `
-                    <h2>Aufgabe ${i}</h2>
-                    <p>Inhalt für Aufgabe ${i} wird hier eingefügt...</p>
-                    <p><strong>Ihre Aufgabe:</strong></p>
-                    <p>Arbeiten Sie an den spezifischen Anforderungen dieser Aufgabe.</p>
-                `
+                content: {
+                    introduction: `Dies ist Aufgabe ${i}. Die Aufgabenbeschreibung konnte nicht geladen werden.`,
+                    sections: [
+                        {
+                            heading: "Ihre Aufgabe:",
+                            text: "Bitte kontaktieren Sie den Support, wenn dieses Problem weiterhin besteht."
+                        }
+                    ]
+                }
+            });
+        }
+        return defaultTasks;
+    }
+
+    // Helper function to render task content from JSON structure
+    renderTaskContent(task) {
+        let html = `<h2>${task.title}</h2>`;
+        
+        // Add video if available
+        if (task.videoUrl) {
+            html += `
+                <div class="video-container">
+                    <video controls width="100%">
+                        <source src="${task.videoUrl}" type="video/mp4">
+                        Ihr Browser unterstützt das Video-Tag nicht.
+                    </video>
+                    ${task.videoDuration ? `<p class="video-duration">Dauer: ${task.videoDuration}</p>` : ''}
+                </div>
+            `;
+        }
+        
+        // Add introduction
+        if (task.content.introduction) {
+            html += `<p class="introduction">${task.content.introduction}</p>`;
+        }
+        
+        // Add sections
+        if (task.content.sections) {
+            task.content.sections.forEach(section => {
+                if (section.heading) {
+                    html += `<h3>${section.heading}</h3>`;
+                }
+                if (section.text) {
+                    html += `<p>${section.text}</p>`;
+                }
+                if (section.list) {
+                    html += '<ul>';
+                    section.list.forEach(item => {
+                        // Convert markdown bold to HTML
+                        const formattedItem = item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        html += `<li>${formattedItem}</li>`;
+                    });
+                    html += '</ul>';
+                }
             });
         }
         
-        return this.tasks;
+        // Add examples if available
+        if (task.content.examples) {
+            if (task.content.examples.good) {
+                html += '<div class="examples good-examples">';
+                html += '<h4>✓ Gute Beispiele:</h4><ul>';
+                task.content.examples.good.forEach(example => {
+                    html += `<li>${example}</li>`;
+                });
+                html += '</ul></div>';
+            }
+            if (task.content.examples.bad) {
+                html += '<div class="examples bad-examples">';
+                html += '<h4>✗ Schlechte Beispiele:</h4><ul>';
+                task.content.examples.bad.forEach(example => {
+                    html += `<li>${example}</li>`;
+                });
+                html += '</ul></div>';
+            }
+        }
+        
+        // Add tips if available
+        if (task.content.tips) {
+            html += '<div class="tips-box">';
+            html += '<h4>💡 Tipps:</h4><ul>';
+            task.content.tips.forEach(tip => {
+                html += `<li>${tip}</li>`;
+            });
+            html += '</ul></div>';
+        }
+        
+        // Add word count requirement if specified
+        if (task.content.expectedWordCount) {
+            html += `<div class="word-count-requirement">
+                <p><strong>Umfang:</strong> ${task.content.expectedWordCount.min}-${task.content.expectedWordCount.max} Wörter</p>
+            </div>`;
+        }
+        
+        return html;
     }
 
     setupEventListeners() {
@@ -445,12 +462,11 @@ class MOOCApp {
         document.querySelectorAll('.task-link').forEach(link => {
             link.classList.remove('active');
         });
-        document.querySelector(`a[onclick*="${taskId}"]`)?.classList.add('active');
         
-        // Load task content
+        // Load task content using the new render method
         const task = this.tasks.find(t => t.id === taskId);
         if (task) {
-            document.getElementById('task-content').innerHTML = task.content;
+            document.getElementById('task-content').innerHTML = this.renderTaskContent(task);
         }
         
         // Load saved text for this task
@@ -462,6 +478,46 @@ class MOOCApp {
         
         // Re-render navigation to update active state
         this.renderTaskNavigation();
+        
+        // Update word counter if task has word requirements
+        if (task?.content?.expectedWordCount) {
+            this.initWordCounter(task.content.expectedWordCount);
+        }
+    }
+
+    initWordCounter(expectedCount) {
+        const textEditor = document.getElementById('text-editor');
+        const statusEl = document.getElementById('save-status');
+        
+        const updateWordCount = () => {
+            const text = textEditor.value.trim();
+            const wordCount = text ? text.split(/\s+/).length : 0;
+            
+            let countText = `${wordCount} Wörter`;
+            if (expectedCount) {
+                countText += ` (Ziel: ${expectedCount.min}-${expectedCount.max})`;
+                
+                // Add color coding
+                if (wordCount < expectedCount.min) {
+                    statusEl.style.color = '#dc3545';
+                } else if (wordCount > expectedCount.max) {
+                    statusEl.style.color = '#ffc107';
+                } else {
+                    statusEl.style.color = '#28a745';
+                }
+            }
+            
+            // Only update if not currently saving
+            if (!statusEl.classList.contains('saving')) {
+                statusEl.textContent = countText;
+            }
+        };
+        
+        // Initial count
+        updateWordCount();
+        
+        // Update on input
+        textEditor.addEventListener('input', updateWordCount);
     }
 
     async loadTaskText(taskId) {
@@ -535,14 +591,30 @@ class MOOCApp {
                 await this.loadUserProgress();
                 this.renderTaskNavigation();
                 
+                // Show completion message
+                this.showCompletionMessage();
+                
                 // Move to next task if available
                 if (this.currentTask < 19) {
-                    this.loadTask(this.currentTask + 1);
+                    setTimeout(() => {
+                        this.loadTask(this.currentTask + 1);
+                    }, 2000);
                 }
             }
         } catch (error) {
             console.error('Failed to complete task:', error);
         }
+    }
+
+    showCompletionMessage() {
+        const message = document.createElement('div');
+        message.className = 'completion-message';
+        message.innerHTML = '✓ Aufgabe erfolgreich abgeschlossen!';
+        document.body.appendChild(message);
+        
+        setTimeout(() => {
+            message.remove();
+        }, 3000);
     }
 
     async updateLastTask(taskId) {
@@ -596,10 +668,12 @@ class MOOCApp {
     }
 
     logout() {
-        localStorage.removeItem('mooc_token');
-        this.currentUser = null;
-        this.currentTask = 1;
-        this.showWelcomeScreen();
+        if (confirm('Möchten Sie sich wirklich abmelden?')) {
+            localStorage.removeItem('mooc_token');
+            this.currentUser = null;
+            this.currentTask = 1;
+            this.showWelcomeScreen();
+        }
     }
 
     showError(message) {

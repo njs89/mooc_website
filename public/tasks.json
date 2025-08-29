@@ -1,0 +1,385 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Einführung in die Argumentation",
+      "videoUrl": "https://your-video-host.com/video1.mp4",
+      "videoDuration": "12:30",
+      "content": {
+        "introduction": "Willkommen zu Ihrem ersten Schritt in die Welt der Argumentation! In dieser Aufgabe lernen Sie die Grundlagen kennen.",
+        "sections": [
+          {
+            "heading": "Was ist ein Argument?",
+            "text": "Ein Argument besteht aus mindestens zwei Teilen:",
+            "list": [
+              "**Behauptung (These):** Was Sie beweisen möchten",
+              "**Begründung:** Warum Ihre Behauptung stimmt"
+            ]
+          },
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Schreiben Sie einen kurzen Text (150-200 Wörter) über ein Thema Ihrer Wahl. Stellen Sie dabei eine klare Behauptung auf und begründen Sie diese mit mindestens zwei Argumenten."
+          }
+        ],
+        "tips": [
+          "Beginnen Sie mit einer klaren These",
+          "Nutzen Sie Signalwörter wie 'weil', 'daher', 'folglich'"
+        ],
+        "expectedWordCount": {
+          "min": 150,
+          "max": 200
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "Thesen formulieren",
+      "videoUrl": "https://your-video-host.com/video2.mp4",
+      "videoDuration": "15:45",
+      "content": {
+        "introduction": "Eine starke These ist das Fundament jedes guten Arguments. Sie muss klar, präzise und vertretbar sein.",
+        "sections": [
+          {
+            "heading": "Eigenschaften einer guten These:",
+            "list": [
+              "Eindeutig und verständlich formuliert",
+              "Nicht zu allgemein oder zu spezifisch",
+              "Kontrovers diskutierbar",
+              "Mit Argumenten belegbar"
+            ]
+          },
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Formulieren Sie zu drei verschiedenen Themen jeweils eine These. Erklären Sie, warum jede These ein gutes Fundament für eine Argumentation darstellt."
+          }
+        ],
+        "examples": {
+          "good": [
+            "Schuluniformen fördern die Gleichberechtigung unter Schülern.",
+            "Homeoffice steigert die Produktivität von Arbeitnehmern."
+          ],
+          "bad": [
+            "Bildung ist wichtig. (zu allgemein)",
+            "Am 15. März 2024 regnete es in Berlin. (nicht diskutierbar)"
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "Argumente finden und strukturieren",
+      "videoUrl": "https://your-video-host.com/video3.mp4",
+      "videoDuration": "18:20",
+      "content": {
+        "introduction": "Gute Argumente zu finden erfordert systematisches Vorgehen. Hier lernen Sie verschiedene Strategien kennen.",
+        "sections": [
+          {
+            "heading": "Argumentationsstrategien:",
+            "list": [
+              "**Faktenargument:** Berufung auf nachprüfbare Tatsachen",
+              "**Autoritätsargument:** Berufung auf Experten",
+              "**Analogieargument:** Vergleich mit ähnlichen Situationen",
+              "**Kausalargument:** Ursache-Wirkungs-Beziehungen"
+            ]
+          },
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Wählen Sie eine These aus der vorherigen Aufgabe. Entwickeln Sie für diese These vier verschiedene Argumente entsprechend den vier Strategien."
+          }
+        ],
+        "template": {
+          "structure": "These → Argument 1 → Beleg → Argument 2 → Beleg → Schlussfolgerung"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "Gegenargumente antizipieren",
+      "videoUrl": "https://your-video-host.com/video4.mp4",
+      "videoDuration": "14:15",
+      "content": {
+        "introduction": "Ein starker argumentativer Text berücksichtigt auch mögliche Einwände und Gegenargumente.",
+        "sections": [
+          {
+            "heading": "Warum Gegenargumente wichtig sind:",
+            "list": [
+              "Zeigen Sie die Komplexität des Themas",
+              "Stärken Ihre Glaubwürdigkeit",
+              "Ermöglichen eine differenzierte Argumentation"
+            ]
+          },
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Nehmen Sie Ihre bisherige Argumentation und identifizieren Sie drei mögliche Gegenargumente. Entwickeln Sie für jedes Gegenargument eine Erwiderung."
+          }
+        ],
+        "strategies": [
+          "Einräumen und Widerlegen",
+          "Relativieren der Bedeutung",
+          "Aufzeigen von Denkfehlern"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "title": "Einleitung schreiben",
+      "videoUrl": "https://your-video-host.com/video5.mp4",
+      "videoDuration": "16:00",
+      "content": {
+        "introduction": "Die Einleitung ist der erste Eindruck Ihres argumentativen Textes. Sie sollte das Interesse wecken und zur These hinführen.",
+        "sections": [
+          {
+            "heading": "Elemente einer guten Einleitung:",
+            "list": [
+              "Aufmerksamkeit erregendes Element (Frage, Zitat, Statistik)",
+              "Hinführung zum Thema",
+              "Klare These am Ende"
+            ]
+          },
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Schreiben Sie drei verschiedene Einleitungen für dasselbe Thema. Verwenden Sie dabei unterschiedliche Eröffnungsstrategien."
+          }
+        ],
+        "techniques": [
+          "Rhetorische Frage",
+          "Aktueller Bezug",
+          "Zitat einer Autorität",
+          "Überraschende Statistik",
+          "Persönliche Anekdote"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Überleitungen gestalten",
+      "videoUrl": "https://your-video-host.com/video6.mp4",
+      "videoDuration": "13:45",
+      "content": {
+        "introduction": "Überleitungen verbinden Ihre Argumente und sorgen für einen flüssigen Textfluss.",
+        "sections": [
+          {
+            "heading": "Arten von Überleitungen:",
+            "list": [
+              "Additive Überleitungen (außerdem, zudem)",
+              "Kontrastive Überleitungen (jedoch, andererseits)",
+              "Kausale Überleitungen (daher, folglich)",
+              "Temporale Überleitungen (zunächst, anschließend)"
+            ]
+          },
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Nehmen Sie einen Ihrer bisherigen Texte und fügen Sie passende Überleitungen zwischen allen Absätzen ein. Begründen Sie Ihre Wahl."
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Belege und Beispiele einbauen",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Belege und Beispiele machen Ihre Argumentation überzeugend und nachvollziehbar.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Ergänzen Sie Ihre Argumentation mit konkreten Belegen und Beispielen."
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Schlussfolgerung formulieren",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Der Schluss fasst Ihre Argumentation zusammen und hinterlässt einen bleibenden Eindruck.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Schreiben Sie eine überzeugende Schlussfolgerung für Ihren argumentativen Text."
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "title": "Sprachliche Mittel der Argumentation",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Bestimmte sprachliche Mittel können Ihre Argumentation verstärken.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Überarbeiten Sie Ihren Text mit Fokus auf sprachliche Überzeugungskraft."
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "title": "Argumentationsstrukturen analysieren",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Lernen Sie, verschiedene Argumentationsstrukturen zu erkennen und anzuwenden.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Analysieren Sie einen vorgegebenen Text und identifizieren Sie die Argumentationsstruktur."
+          }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "title": "Pro und Contra abwägen",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Eine ausgewogene Darstellung verschiedener Perspektiven stärkt Ihre Position.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Erstellen Sie eine Pro-Contra-Erörterung zu einem kontroversen Thema."
+          }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "title": "Rhetorische Stilmittel",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Rhetorische Stilmittel können Ihre Argumentation lebendiger und überzeugender machen.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Integrieren Sie mindestens fünf verschiedene rhetorische Stilmittel in Ihren Text."
+          }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "title": "Quellenarbeit und Zitate",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Korrekte Quellenangaben und Zitate verleihen Ihrer Argumentation Glaubwürdigkeit.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Recherchieren Sie Quellen zu Ihrem Thema und integrieren Sie sie korrekt in Ihren Text."
+          }
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "title": "Argumentationsfehler vermeiden",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Lernen Sie typische Argumentationsfehler kennen und wie Sie diese vermeiden.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Identifizieren und korrigieren Sie Argumentationsfehler in vorgegebenen Texten."
+          }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "title": "Zielgruppengerechtes Argumentieren",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Passen Sie Ihre Argumentation an verschiedene Zielgruppen an.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Schreiben Sie denselben argumentativen Text für drei verschiedene Zielgruppen."
+          }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "title": "Komplexe Argumentationsketten",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Entwickeln Sie mehrschrittige Argumentationen für komplexe Themen.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Erstellen Sie eine komplexe Argumentationskette mit mindestens fünf logisch verbundenen Schritten."
+          }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "title": "Revision und Überarbeitung",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Die Überarbeitung ist ein wesentlicher Teil des Schreibprozesses.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Überarbeiten Sie Ihren bisherigen Text systematisch auf verschiedenen Ebenen."
+          }
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "title": "Peer-Review durchführen",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Feedback von anderen hilft, die eigene Argumentation zu verbessern.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Geben Sie konstruktives Feedback zu einem Text und überarbeiten Sie Ihren eigenen basierend auf erhaltenen Rückmeldungen."
+          }
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "title": "Finaler Argumentationsaufsatz",
+      "videoUrl": "",
+      "videoDuration": "",
+      "content": {
+        "introduction": "Wenden Sie alle gelernten Techniken in einem umfassenden Argumentationsaufsatz an.",
+        "sections": [
+          {
+            "heading": "Ihre Aufgabe:",
+            "text": "Verfassen Sie einen vollständigen Argumentationsaufsatz (800-1000 Wörter) zu einem selbstgewählten Thema."
+          }
+        ],
+        "expectedWordCount": {
+          "min": 800,
+          "max": 1000
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "courseTitle": "Argumentationsaufsatz Meisterkurs",
+    "courseDescription": "Lernen Sie in 19 strukturierten Lektionen, überzeugende Argumentationsaufsätze zu schreiben",
+    "lastUpdated": "2024-01-15",
+    "version": "1.0.0",
+    "authors": ["Ihr Name"],
+    "language": "de"
+  }
+}
