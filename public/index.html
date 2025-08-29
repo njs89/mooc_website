@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOC - Argumentationsaufsatz Kurs</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Online-Kurs zum Erlernen von Argumentationsaufsätzen">
+</head>
+<body>
+    <div id="app">
+        <!-- Loading State -->
+        <div id="loading" class="loading-container">
+            <div class="spinner"></div>
+            <p>Lade Kurs...</p>
+        </div>
+
+        <!-- Welcome/Login Screen -->
+        <div id="welcome-screen" class="screen" style="display: none;">
+            <div class="container">
+                <header class="welcome-header">
+                    <h1>📝 Argumentationsaufsatz Kurs</h1>
+                    <p class="subtitle">Lernen Sie in 19 Aufgaben, überzeugende Argumente zu schreiben</p>
+                </header>
+
+                <div class="auth-container">
+                    <div class="auth-box">
+                        <h2>Anmelden oder Registrieren</h2>
+                        <p>Wählen Sie einen einfachen Benutzernamen (mindestens 3 Zeichen)</p>
+                        
+                        <form id="auth-form">
+                            <input 
+                                type="text" 
+                                id="username" 
+                                placeholder="z.B. alex2024, student123" 
+                                required 
+                                minlength="3"
+                            >
+                            <button type="submit">Kurs starten</button>
+                        </form>
+                        
+                        <div id="auth-error" class="error-message"></div>
+                        
+                        <div class="info-box">
+                            <p><strong>💡 Wichtig:</strong> Merken Sie sich Ihren Benutzernamen! 
+                            Sie benötigen ihn, um von anderen Geräten auf Ihre Texte zuzugreifen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Course Interface -->
+        <div id="course-screen" class="screen" style="display: none;">
+            <header class="course-header">
+                <div class="header-content">
+                    <h1>📝 Argumentationsaufsatz Kurs</h1>
+                    <div class="user-info">
+                        <span id="username-display"></span>
+                        <button id="logout-btn" class="btn-secondary">Abmelden</button>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                    <span id="progress-text" class="progress-text">Aufgabe 1 von 19</span>
+                </div>
+            </header>
+
+            <div class="course-content">
+                <aside id="sidebar" class="sidebar">
+                    <h3>Aufgaben</h3>
+                    <nav id="task-nav" class="task-nav">
+                        <!-- Tasks will be populated by JavaScript -->
+                    </nav>
+                    <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+                </aside>
+
+                <main class="main-content">
+                    <div id="task-content" class="task-content">
+                        <!-- Task content will be loaded here -->
+                    </div>
+
+                    <div class="writing-area">
+                        <div class="textarea-header">
+                            <h4>Ihre Antwort:</h4>
+                            <div class="save-indicator">
+                                <span id="save-status">Gespeichert</span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="text-editor" 
+                            placeholder="Beginnen Sie hier mit dem Schreiben..."
+                            rows="15"
+                        ></textarea>
+                        
+                        <div class="editor-actions">
+                            <button id="save-btn" class="btn-primary">Speichern</button>
+                            <button id="complete-btn" class="btn-success">Aufgabe abschließen</button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Legal Pages -->
+        <div id="legal-screen" class="screen legal-page" style="display: none;">
+            <div class="container">
+                <header class="legal-header">
+                    <button id="back-btn" class="btn-secondary">← Zurück zum Kurs</button>
+                    <h1 id="legal-title">Impressum</h1>
+                </header>
+                <div id="legal-content" class="legal-content">
+                    <!-- Legal content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ihre Organisation. Alle Rechte vorbehalten.</p>
+                <nav class="footer-nav">
+                    <a href="#" data-legal="impressum">Impressum</a>
+                    <a href="#" data-legal="datenschutz">Datenschutz</a>
+                    <a href="#" data-legal="kontakt">Kontakt</a>
+                    <a href="#" data-legal="nutzungsbedingungen">Nutzungsbedingungen</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
